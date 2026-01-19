@@ -1,0 +1,28 @@
+Problem
+
+Given an array and a target, return indices of two numbers whose sum is target.
+
+Step-by-step thinking
+
+We need fast lookup → use an object (hash map)
+
+Loop through array
+
+Check if target - currentNumber already exists
+
+If yes → return indices
+
+Solution
+function twoSum(nums, target) {
+  const map = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const need = target - nums[i];
+
+    if (map[need] !== undefined) {
+      return [map[need], i];
+    }
+
+    map[nums[i]] = i;
+  }
+}
